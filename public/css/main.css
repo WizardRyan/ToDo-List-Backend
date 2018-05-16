@@ -1,0 +1,70 @@
+body {
+  background-color: #dadfea; }
+
+#clean-card {
+  display: none; }
+
+.header-buttons button {
+  height: 40px;
+  border: none; }
+.header-buttons button:focus {
+  outline: none; }
+
+.card {
+  box-shadow: 0 0 12px lightgray;
+  margin: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  max-height: 400px;
+  width: 350px;
+  overflow: auto;
+  overflow-x: hidden;
+  position: relative; }
+  .card .card-header {
+    font-size: 1.2em;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    min-height: 50px;
+    background-color: rgba(239, 240, 241, 0.8); }
+    .card .card-header button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      height: 36px; }
+      .card .card-header button span {
+        position: relative;
+        bottom: 1px; }
+    .card .card-header button:hover {
+      box-shadow: 0 0 8px gray;
+      transform: scale(1.1); }
+    .card .card-header .card-title-input {
+      border: none;
+      border-bottom: 2px solid lightgray;
+      background-color: transparent;
+      margin-right: 10px;
+      position: relative;
+      right: 15px; }
+    .card .card-header .card-title-input:focus {
+      outline: none; }
+  .card .card-body .input-group {
+    margin: 10px;
+    display: flex;
+    justify-content: center; }
+    .card .card-body .input-group .task-item-delete {
+      width: 30px;
+      height: 37.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px; }
+  .card .button-container {
+    justify-content: space-between; }
+    .card .button-container button:hover {
+      box-shadow: 0 0 5px lightgray; }
+
+/*# sourceMappingURL=main.css.map */

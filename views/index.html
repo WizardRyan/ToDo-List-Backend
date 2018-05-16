@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Title</title>
+
+    <script defer src="/js/jquery-3.2.1.js"></script>
+    <script defer src="/js/bootstrap.min.js"></script>
+    <script defer type="module" src="/js/cardClass.js"></script>
+    <script defer type="module" src="/js/toDo.js"></script>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row header-buttons">
+        <button class="col-12 btn-dark" id="delete-all-btn">Delete All</button>
+        <button class="col-12 btn-light" id="clear-completed-btn">Clear Completed Tasks</button>
+        <button class="col-12 btn-light" id="add-new-btn">Add New Card</button>
+        <button class="col-12 btn-light" id="save-all-btn">Save All</button>
+    </div>
+
+    <div class="row" id="card-row">
+    </div>
+</div>
+</body>
+</html>

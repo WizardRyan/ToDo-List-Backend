@@ -1,0 +1,102 @@
+body{
+  background-color: #dadfea;
+  //background-color: darkgray;
+
+}
+
+#clean-card{
+  display: none;
+}
+
+.header-buttons{
+  button{
+    height: 40px;
+    border: none;
+  }
+
+  button:focus{
+    outline: none;
+  }
+}
+
+
+.card{
+  box-shadow: 0 0 12px lightgray;
+  margin: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  max-height: 400px;
+  width: 350px;
+  overflow: auto;
+  overflow-x: hidden;
+  position: relative;
+
+  .card-header{
+    font-size: 1.2em;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    min-height: 50px;
+    background-color: rgba(239, 240, 241, .8);
+    button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      height: 36px;
+      span{
+        position: relative;
+        bottom: 1px;
+      }
+    }
+
+    button:hover{
+      box-shadow: 0 0 8px gray;
+      transform: scale(1.1);
+      //background-color: #17A1B7;
+
+    }
+
+    .card-title-input{
+      border: none;
+      border-bottom: 2px solid lightgray;
+      background-color: transparent;
+      margin-right: 10px;
+      position: relative;
+      right: 15px;
+    }
+
+    .card-title-input:focus{
+      outline: none;
+    }
+  }
+
+  .card-body{
+    .input-group{
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      //align-items: center;
+
+      .task-item-delete{
+        width: 30px;
+        height: 37.5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+
+      }
+    }
+  }
+  .button-container{
+    justify-content: space-between;
+    button:hover{
+      box-shadow: 0 0 5px lightgray;
+    }
+  }
+}
+
