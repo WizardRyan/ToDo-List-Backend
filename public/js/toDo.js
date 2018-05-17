@@ -1,4 +1,5 @@
 import Card from './cardClass.js';
+// import * as $ from './jquery-3.2.1';
 
 let row = document.getElementById('card-row');
 let globalCardId = Math.ceil(Math.random() * 10000000);
@@ -8,36 +9,24 @@ $('#add-new-btn').bind('click', addCard);
 $('#clear-completed-btn').bind('click', deletCompleted);
 $('#delete-all-btn').bind('click', deletAll);
 $('#save-all-btn').bind('click', saveAll);
-let local = window.localStorage;
+// let local = window.localStorage;
 let cards = [];
 
 function getInputId() {
     return 'input-id-' + Math.ceil(Math.random() * 10000000);
 }
 
-// if (!local.getItem("cardArray")){
-//     local.setItem("cardArray", JSON.stringify(cards));
-//     addCard();
-// }
-//
-// else{
-//     cards = JSON.parse(local.getItem("cardArray"));
-//     for(let i = 0; i < cards.length; i++){
-//         addCard(null, cards[i]);
-//     }
-//
-//     if(row.childNodes.length < 2){
-//         addCard();
-//     }
-// }
+$.get('http://localhost:3000/cards', (data) => {
+    cards = data;
+    for(let i = 0; i < cards.length; i++){
+        addCard(null, cards[i]);
+    }
 
-$.get('http://localhost:27017/users')
-    .then(resp => {
-        return resp.json();
-    })
-    .then(myJson => {
-       console.log(myJson);
-    });
+    if(row.childNodes.length < 2){
+        addCard();
+    }
+});
+
 
 
 function saveAll(e){
@@ -72,10 +61,11 @@ function saveAll(e){
 
         }
 
-        local.removeItem("cardArray");
-        local.setItem("cardArray", JSON.stringify(cards));
+        // local.removeItem("cardArray");
+        // local.setItem("cardArray", JSON.stringify(cards));
     }
 
+    $.post("http://localhost:3000/add", {cards: JSON.stringify(cards)});
     toastr.success("All Cards Saved");
 }
 
@@ -107,8 +97,9 @@ function saveCard(e){
     }
 
 
-    local.removeItem("cardArray");
-    local.setItem("cardArray", JSON.stringify(cards));
+    // local.removeItem("cardArray");
+    // local.setItem("cardArray", JSON.stringify(cards));
+    $.post("http://localhost:3000/add", {cards: JSON.stringify(cards)});
 
     toastr.success(`"${title}" Saved`);
 }
@@ -197,8 +188,10 @@ function deletCard(e){
                 cards.splice(i, 1);
             }
         }
-        local.removeItem("cardArray");
-        local.setItem('cardArray', JSON.stringify(cards));
+        // local.removeItem("cardArray");
+        // local.setItem('cardArray', JSON.stringify(cards));
+        $.post("http://localhost:3000/add", {cards: JSON.stringify(cards)});
+
 
         deletedCard.outerHTML = "";
     });
@@ -261,7 +254,8 @@ function deletAll(e){
         addCard();
     });
     cards = [];
-    localStorage.removeItem('cardArray');
+    // localStorage.removeItem('cardArray');
+    $.get("http://localhost:3000/delete");
 
     toastr.error("All Cards Deleted");
 
