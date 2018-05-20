@@ -36,7 +36,7 @@ body {
       height: 36px; }
       .card .card-header button span {
         position: relative;
-        bottom: 1px; }
+        bottom: 2px; }
     .card .card-header button:hover {
       box-shadow: 0 0 8px gray;
       transform: scale(1.1); }
