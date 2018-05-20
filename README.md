@@ -4,6 +4,10 @@
 
 ### Start Mongo 
 
+`mongod`
+
+or
+
 `mongod --dbpath <path-to-db>`
 
 ### Start the app
