@@ -2,8 +2,8 @@ import Card from './cardClass.js';
 // import * as $ from './jquery-3.2.1';
 
 let row = document.getElementById('card-row');
-let globalCardId = Math.ceil(Math.random() * 10000000);
-let globalInputIdNum = Math.ceil(Math.random() * 1000000);
+let globalCardId = Math.ceil(Math.random() * 1000000000000);
+let globalInputIdNum = Math.ceil(Math.random() * 100000000000);
 let globalInputId = "input-id-";
 $('#add-new-btn').bind('click', addCard);
 $('#clear-completed-btn').bind('click', deletCompleted);
@@ -13,7 +13,7 @@ $('#save-all-btn').bind('click', saveAll);
 let cards = [];
 
 function getInputId() {
-    return 'input-id-' + Math.ceil(Math.random() * 10000000);
+    return 'input-id-' + Math.ceil(Math.random() * 1000000000000);
 }
 
 $.get('http://localhost:3000/cards', (data) => {
@@ -26,7 +26,6 @@ $.get('http://localhost:3000/cards', (data) => {
         addCard();
     }
 });
-
 
 
 function saveAll(e){
@@ -248,8 +247,7 @@ function deletCompleted(e){
 function deletAll(e){
     $('.card').animate({height: '0'}, 500, () => {
         row.innerHTML = "";
-        cards = [];
-        globalCardId = -1;
+        globalCardId = getInputId();
         globalInputIdNum = -1;
         addCard();
     });

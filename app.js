@@ -43,7 +43,9 @@ app.get('/cards', (req, resp) => {
 });
 
 app.get('/delete', (req, resp) => {
-    Card.deleteMany({});
+    Card.deleteMany({}, (err) => {
+        if(err)resp.send(err);
+    });
 });
 
 app.post('/add', (req, resp) => {
